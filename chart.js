@@ -1,5 +1,5 @@
 
-d3.csv('../resources/temperature-data.csv', function(error, data) {
+d3.csv('temperature-data.csv', function(error, data) {
 	chart(data);
 });
 
