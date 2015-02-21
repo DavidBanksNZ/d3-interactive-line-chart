@@ -147,11 +147,6 @@ function chart(data) {
 	// Start data as a flat line at the average
 	var avgTempY = yScale(d3.mean(temps));
 
-	// Initial path generator - we will smoothly transition to the real data
-	var initPathGenerator = d3.svg.line()
-		.x(function(d, i) { return xScale(dates[i]); })
-		.y(avgTempY);
-
 	// Path generator function for our data
 	var pathGenerator = d3.svg.line()
 		.x(function(d, i) { return xScale(dates[i]); })
@@ -166,10 +161,7 @@ function chart(data) {
 		.style('fill', 'none')
 		.style('stroke', 'red')
 		.style('stroke-width', '1px')
-		.attr('d', initPathGenerator(dates))
-		.transition()
-			.duration(600)
-			.attr('d', pathGenerator(dates));
+		.attr('d', pathGenerator(dates));
 
 
 	// Add zooming and panning functionality, only along the x axis
