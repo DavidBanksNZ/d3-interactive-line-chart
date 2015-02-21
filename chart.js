@@ -269,8 +269,8 @@ function chart(data) {
 
 	backRect.on('mousemove', function() {
 
-		// Local coords of mousemove event
-		var coords = d3.mouse(this);
+		// Coords of mousemove event relative to the container div
+		var coords = d3.mouse(container.node());
 
 		// Value on the x scale corresponding to this location
 		var xVal = xScale.invert(coords[0]);
